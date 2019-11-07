@@ -1,0 +1,112 @@
+<html>
+<head>
+<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+	$("body").css("text-align","center");
+	
+	//2)
+	var hijos = $("div#container").children("div");
+	
+	hijos.each(function(index){
+		//console.log($(this).attr("id"));
+		$(this).attr("class", $(this).attr("id"));
+	});
+	
+	//3)
+	var elementoHeroes = $("#heroes");
+	var parent = elementoHeroes.parent();
+	var grandpa = parent.parent();
+	
+	var tipoMusica = parent.attr("class");
+	var epoca = grandpa.attr("id");
+	
+	alert("Apartado 3: Tipo música - "+ tipoMusica + ". Epoca - " + epoca);
+
+	console.log(tipoMusica);
+	console.log(epoca);
+	
+	//4)
+	var siguientesGrupos = $("p#heroes").nextAll();
+	
+	siguientesGrupos.each(function(index){
+		$(this).attr("id", $(this).text());
+	});
+	
+	//5)
+	var nietos = hijos.children("div");
+	
+	if(nietos.attr("class") == "internacional"){
+		if(nietos.children("p").attr("id") == "queen"){
+			console.log($(this));
+		}else{
+			var queen = "<p id='queen'>Queen</p>"
+			$("div#ochenta .internacional").append(queen);
+		}
+	}
+});
+</script>
+</head>
+
+<body>
+<div id="container">
+   <h1>Grupos de música</h1>
+   <div id="setenta">
+       <div class="internacional">
+           <h2>Internacionales</h2>
+           <p>ABBA</p>
+           <p>Beach Boys</p>
+           <p>Bee Gees</p>
+           <p>Led Zeppelin</p>
+           <p>Pink Floyd</p>
+       </div>
+       <div class="nacional">
+           <h2>Españoles</h2>
+           <p>Camilo Sesto</p>
+           <p>Miguel Rios</p>
+           <p>Mocedades</p>
+           <p>Nino Bravo</p>
+       </div>
+   </div>
+   <div id="ochenta">
+       <div class="internacional">
+           <h2>Internacionales</h2>
+           <p>AC/DC</p>
+           <p>Aerosmith</p>
+           <p>Bon Jovi</p>
+           <p>The Cure</p>
+           <p>Europe</p>
+           <p>Motörhead</p>
+           <p>Supertramp</p>
+       </div>
+       <div class="nacional">
+           <h2>Españoles</h2>
+           <p>Alaska y Dinarama</p>
+           <p>Barricada</p>
+           <p id="heroes">Héroes del Silencio</p>
+           <p>Mecano</p>
+           <p>Radio Futura</p>
+       </div>
+   </div>
+   <div id="noventa">
+       <div class="internacional">
+           <h2>Internacionales</h2>
+           <p>Back Street Boys</p>
+           <p>The Cardigans</p>
+           <p>Daft Punk</p>
+           <p>Evanescence</p>
+           <p>Foo Fighters</p>
+           <p>Marilyn Manson</p>
+       </div>
+       <div class="nacional">
+           <h2>Españoles</h2>
+           <p>Amaral</p>
+           <p>Extremoduro</p>
+           <p>La Fuga</p>
+           <p>Los fresones rebeldes</p>
+       </div>
+   </div>
+</div>
+</body>
+
+</html>
